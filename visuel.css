@@ -1,0 +1,283 @@
+#42F636
+
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--back: hsl(0, 0%, 5%);
+	--brd: 1px;
+}
+
+body {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	width: 100vw;
+	background-color: hsl(0, 0%, 5%);
+	gap: 5vh;
+	margin: 2vh 0 0 0;
+	font-family: Fugaz One;
+}
+
+#container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: min(60vh, 60vw);
+	aspect-ratio: 1/1;
+	border: 2px solid #42F636;
+	position: relative;
+	overflow: hidden;
+}
+
+h1 {
+	font-size: 3vw;
+	color: #42F636;
+	margin: 0;
+	font-weight: 700;
+}
+
+.ligne {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 10%;
+}
+
+.case {
+	height: calc(100% - var(--brd)*2);
+	width: calc(10% - var(--brd)*2);
+	border: var(--brd) solid hsl(0, 0%, 5%);
+	z-index: -1;
+}
+
+.case.on {
+	background-color: orange;
+}
+
+#mouv {
+	width: calc(min(60vh, 60vw)*0.1 - 2*var(--brd));
+	height: calc(min(60vh, 60vw)*0.1 - 2*var(--brd));
+	background-color: #267b20;
+	position: absolute;
+	border: var(--brd) solid hsl(0, 0%, 5%);
+}
+
+#score {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+#score h1 {
+	font-size: 2vw;
+}
+
+
+#nbr {
+	height: 2vw;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	overflow-y: hidden;
+	flex-direction: row;
+	margin-left: 10px;
+}
+
+.listenbr {
+	height: 16vw;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	transition: all .5s;
+	display: none;
+}
+
+.listenbr div {
+	font-size: 2vw;
+	height: 2vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #42F636;
+}
+
+section#diffi {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	height: 8vh;
+}
+
+#diffi button {
+	height: 100%;
+	background-color: hsla(0, 0%, 5%, 0);
+	border-radius: 5px;
+	color: white;
+	border: 2px solid #42F636;
+	cursor: pointer;
+	font-family: Montserrat;
+	text-transform: uppercase;
+	font-size: 1.4vw;
+	transition: background-color .5s;
+	padding: 0 20px;
+}
+
+button:active {
+	transform: scale(0.9);
+}
+
+#diffi button.on {
+	background-color: hsla(0, 100%, 100%, 0.15);
+}
+
+.over {
+	font-size: 4vw;
+	background-color: hsla(0, 0%, 0%, 0.5);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: white;
+	position: absolute;
+	visibility: hidden;
+	text-align: center;
+	gap: 5%;
+}
+
+.over.on {
+	visibility: visible;
+	z-index: 100;
+}
+
+#pause div div {
+	width: 66.666%;
+	height: 100%;
+	background-color: white;
+}
+
+#ppause {
+	width: 8%;
+	height: 10%;
+	display: flex;
+	gap: 33.333%;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.material-symbols-outlined {
+	color: white;
+	transform: scale(3);
+	cursor: pointer;
+}
+
+#ppause:active {
+	transform: scale(0.9);
+}
+
+.material-symbols-outlined:active {
+	transform: scale(2.7);
+}
+
+.mouv {
+	width: calc(min(60vh, 60vw)*0.1 - 2*var(--brd));
+	height: calc(min(60vh, 60vw)*0.1 - 2*var(--brd));
+	background-color: #42F636;
+	position: absolute;
+	display: none;
+	z-index: -1;
+	text-align: center;
+	border: var(--brd) solid hsl(0, 0%, 5%);
+}
+
+.mouv.on {
+	display: block;
+}
+
+section#milieu {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	flex-wrap: wrap;
+	height: min(60vh, 60vw);
+}
+
+#touche {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	border: 2px solid #42F636;
+	position: relative;
+}
+
+button.touche {
+	padding: 10px 30px;
+	background-color: transparent;
+	border: 0px none;
+	color: white;
+	cursor: pointer;
+	font-family: Montserrat;
+	text-transform: uppercase;
+	font-size: 1.4vw;
+}
+
+button.touche.on {
+	background-color: hsla(0, 100%, 100%, 0.15);
+}
+
+.yeux {
+	position: absolute;
+	width: 10%;
+	height: 10%;
+	border-radius: 50%;
+	background-color: white;
+	z-index: 1;
+	top: 25%;
+	transform: translateX(-50%);
+}
+
+.yeux:nth-child(1) {
+	left: 33%;
+}
+
+.yeux:nth-child(2) {
+	left: 66%;
+}
+
+.bouche {
+	position: absolute;
+	width: 66%;
+	height: 2%;
+	background-color: white;
+	z-index: 1;
+	top: 65%;
+	left: calc(33% / 2);
+}
+
+#precord {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+#precord h1 {
+	margin-left: 10vw;
+}
+
+#precord div {
+	font-size: 2vw;
+	color: #42F636;
+	margin-left: 10px;
+}
